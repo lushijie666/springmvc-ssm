@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xxx.dao.IImagesDAO">
+
+	<insert id="insertImage" parameterType="com.xxx.model.ImagesModel" useGeneratedKeys="true" keyProperty="id">
+		insert into t_images (url) values (#{url})
+	</insert>
+	
+	<select id="getImageList" parameterType="com.xxx.model.ImagesModel" resultMap="resultImage">
+		select * from t_images
+	</select>
+	
+	<resultMap id="resultImage" type="com.xxx.model.ImagesModel">
+        <id column="id" property="id"/>
+        <result property="url" column="url"/>
+    </resultMap>
+</mapper>
