@@ -26,8 +26,25 @@
 		where id = #{id}
 	</update>
 	
+	
+	<select id="getCourseCount" parameterType="com.xxx.model.CourseModel" resultType="java.lang.Long">
+		select count(1) from t_course
+		<where>
+			<if test="null != query">
+				(`name` LIKE '%${query}%')
+			</if>
+		</where>
+	</select>
+	
 	<select id="getCourseList" resultMap="resultCourse">
 		select * from t_course
+		<where>
+			<if test="null != query">
+				(`name` LIKE '%${query}%')
+			</if>
+		</where>
+		ORDER BY id desc
+		limit ${(pageIndex-1) * pageSize},${pageSize}
 	</select>
 	
 	<resultMap id="resultCourse" type="com.xxx.model.CourseModel">

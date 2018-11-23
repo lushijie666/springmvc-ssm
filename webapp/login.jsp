@@ -44,7 +44,7 @@
             jq.post(url,param,function(result){
                 if(result.code == 0){
                     layer.close(loading);
-                    location.href = _basePath + '/user2.jsp';
+                    location.href = _basePath + '/main.jsp';
                 }else{
                     layer.close(loading);
                     layer.msg(result.msg);

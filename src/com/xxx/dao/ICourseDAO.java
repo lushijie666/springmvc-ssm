@@ -17,6 +17,8 @@ public interface ICourseDAO {
 	
 	int updateCourse(CourseModel courseModel);
 	
-	List<CourseModel> getCourseList();
+	List<CourseModel> getCourseList(CourseModel courseModel);
+	
+	Long getCourseCount(CourseModel courseModel);
 	
 }

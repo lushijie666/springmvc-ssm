@@ -23,7 +23,7 @@ public class CourseController {
 	@RequestMapping("/list")
 	@ResponseBody
 	public List<CourseModel> getCourseList(HttpServletRequest request,HttpServletResponse response){
-		return courseService.getCourseList();
+		return courseService.getCourseList(null);
 	}
 	
 	@RequestMapping("/oper")

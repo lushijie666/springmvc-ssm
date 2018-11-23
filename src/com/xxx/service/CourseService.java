@@ -46,8 +46,12 @@ public class CourseService{
 		return result;
 	}
 	
-	public List<CourseModel> getCourseList() {
-		return courseDao.getCourseList();
+	public List<CourseModel> getCourseList(CourseModel courseModel){
+		return courseDao.getCourseList(courseModel);
+	}
+	
+	public Long getCourseCount(CourseModel courseModel){
+		return courseDao.getCourseCount(courseModel);
 	}
 	
 }

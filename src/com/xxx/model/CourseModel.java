@@ -3,7 +3,7 @@ package com.xxx.model;
 
 import java.io.Serializable;
 
-public class CourseModel implements Serializable{
+public class CourseModel extends PaginationModel implements Serializable{
 	
 	public CourseModel(){}
 	
