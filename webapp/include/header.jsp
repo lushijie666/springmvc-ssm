@@ -7,7 +7,6 @@
 <title>demo</title>
 <link rel="stylesheet" href="${ctx}/js/layui/css/layui.css">
 <link rel="stylesheet" href="${ctx}/css/global.css">
-<script type="text/javascript" src="${ctx}/js/jquery/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="${ctx}/js/layui/layui.js"></script>
 <script type="text/javascript" src="${ctx}/js/highcharts/code/highcharts.js"></script>
 <script type="text/javascript" src="${ctx}/js/base.js"></script>

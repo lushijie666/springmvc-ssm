@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xxx.dao.IClassDAO">
+	
+	<select id="getClassCount" parameterType="com.xxx.model.ClassModel" resultType="java.lang.Long">
+		select count(1) from t_class tc
+		left join t_user tu on tc.user_id = tu.id
+		<where>
+			<if test="null != query">
+				(tc.class_name LIKE '%${query}%' OR tc.teacher_name like '%${query}%' OR tu.name like '')
+			</if>
+		</where>
+	</select>
+	
+	<select id="getClassList" parameterType="com.xxx.model.ClassModel" resultMap="resultClass">
+		select tc.*, tu.name as userName from t_class tc
+		left join t_user tu on tc.user_id = tu.id
+		<where>
+			<if test="null != query">
+				(tc.class_name LIKE '%${query}%' OR tc.teacher_name like '%${query}%' OR tu.name like '%${query}%')
+			</if>
+		</where>
+		ORDER BY tc.id desc
+		limit ${(pageIndex-1) * pageSize},${pageSize}
+	</select>
+	
+	<delete id="deleteClass" parameterType="java.lang.String">
+		delete from t_class where id in (${_parameter})
+	</delete>
+	
+	<resultMap id="resultClass" type="com.xxx.model.ClassModel">
+        <id column="id" property="id"/>
+        <result property="className" column="class_name"/>
+        <result property="teacherName" column="teacher_name"/>
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="userName"/>
+    </resultMap>
+</mapper>

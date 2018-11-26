@@ -30,6 +30,12 @@
                                 <cite>课程管理</cite>
                             </a>
                         </dd>
+                        <dd>
+                            <a href="${ctx}/class.jsp" target="main">
+                                <i class="layui-icon">&#xe60f;</i>
+                                <cite>班级管理</cite>
+                            </a>
+                        </dd>
                     </dl>
                 </li>
             </ul>
